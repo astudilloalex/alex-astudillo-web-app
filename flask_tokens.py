@@ -109,3 +109,12 @@ app.register_blueprint(country_controller, url_prefix='/countries')
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+{
+  "private_key": "-----BEGIN PRIVATE KEY-----\nYourPrivateKeyHere\n-----END PRIVATE KEY-----\n",
+  "public_key": "-----BEGIN PUBLIC KEY-----\nYourPublicKeyHere\n-----END PUBLIC KEY-----\n"
+}
+
+with open('private_key.json', 'r') as private_key_file:
+    private_key = json.load(private_key_file)["private_key"]

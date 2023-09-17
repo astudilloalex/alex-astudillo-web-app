@@ -24,7 +24,7 @@ const chatMessages = chatContent.querySelector('#chat-messages');
 const messageInput = chatContent.querySelector('#message-input');
 const sendButton = chatContent.querySelector('#send-button');
 
-const apiUrl = 'https://tu_api.com/enviar_mensaje';
+const apiUrl = 'https://yourapi.com/send';
 sendButton.addEventListener('click', () => {
     const message = messageInput.value;
     if (message) {

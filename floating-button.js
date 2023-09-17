@@ -24,7 +24,7 @@ const chatMessages = chatContent.querySelector('#chat-messages');
 const messageInput = chatContent.querySelector('#message-input');
 const sendButton = chatContent.querySelector('#send-button');
 
-const apiUrl = 'https://yourapi.com/send';
+const apiUrl = 'https://configapi.curbe.com.ec/api/v1/app-setting/all/UjujpTd6qLdaOwXR7yxQ?platform=RXvEu8V4NkabEaeCXekM';
 sendButton.addEventListener('click', () => {
     const message = messageInput.value;
     if (message) {
@@ -34,12 +34,12 @@ sendButton.addEventListener('click', () => {
 
         // Send message to REST API
         fetch(apiUrl, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
 
             },
-            body: JSON.stringify({ message })
+            //body: JSON.stringify({ message })
         })
         .then(response => response.json())
         .then(data => {
@@ -86,6 +86,13 @@ chatButton.addEventListener("click", () => {
 // Validate token
 // Use backend for this validation
 const expectedToken = 'your-token-here';
+// Check the auth token
+const scriptElement = document.currentScript;
+const scriptSrc = scriptElement.src;
+const url = new URL(scriptSrc);
+const token = url.searchParams.get('token');
+console.log(token);
+
 // Validate allowed hosts.
 const allowedDomains = ["127.0.0.1"];
 // Get the current domain.

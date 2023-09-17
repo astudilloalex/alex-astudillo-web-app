@@ -87,7 +87,7 @@ chatButton.addEventListener("click", () => {
 // Use backend for this validation
 const expectedToken = 'your-token-here';
 // Validate allowed hosts.
-const allowedDomains = [""];
+const allowedDomains = ["127.0.0.1"];
 // Get the current domain.
 const currentDomain = window.location.hostname;
 console.log(currentDomain);

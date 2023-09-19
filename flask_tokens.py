@@ -118,3 +118,26 @@ if __name__ == '__main__':
 
 with open('private_key.json', 'r') as private_key_file:
     private_key = json.load(private_key_file)["private_key"]
+
+
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+
+# Configure CORS
+cors = CORS(app, resources={r"/api/*": {"origins": "http://example.com"},
+                            r"/other/*": {"origins": "https://example2.com"},
+                            r"/all/*": {"origins": "*"},
+                            },
+            allow_headers=["Content-Type", "Authorization"],
+            supports_credentials=True,
+            )
+
+# Example route
+@app.route('/api/data')
+def get_data():
+    return jsonify({"message": "This data is CORS-enabled for http://example.com"})
+
+if __name__ == '__main__':
+    app.run()
